@@ -1,0 +1,5 @@
+1this is a log
+2this is a info
+3this is a error
+4this is a warn
+测试测试中文
