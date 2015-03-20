@@ -16,8 +16,6 @@ Event.prototype.addListener=function(type,listener){
     }else{
         this._events[type]=[listener];
     }
-    Event.prototype.emeit=function(type){
 
-    }
 
 }
