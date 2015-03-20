@@ -46,11 +46,11 @@ LineReader.prototype.on('newListener',function(name,fn){
     }
 
 });
-var aa=new LineReader('../open');
+var reader=new LineReader('../open');
 
-aa.on('newLine',function(data){
+reader.on('newLine',function(data){
     console.log(data);
 });
-aa.on('end',function(){
+reader.on('end',function(){
     console.log('---end');
 });
