@@ -35,7 +35,10 @@ LineReader.prototype.on('newListener',function(name,fn){
                         }
                         fsRead();
                     }else{
-                        that.emit('newLine',Buffer.concat(line).toString());
+                        if(line.length){//避免最后输出空行
+                            that.emit('newLine',Buffer.concat(line).toString());
+                        }
+
                         that.emit('end');
                     }
 
