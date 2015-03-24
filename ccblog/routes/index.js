@@ -4,7 +4,17 @@ var Article=require('../module/article');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    Article.get({},function(err,docs){
+        //docs.sort();//这里排序不会用
+        if(err){
+            return req.flash('error','查询失败');
+        }
+        res.render('index', {
+            title: '首页',
+            docs:docs
+        });
+    });
+
 });
 router.get('/add', function(req, res, next) {
     if(!req.session.user){

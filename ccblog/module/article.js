@@ -4,7 +4,7 @@
 var mongoose=require('../db');
 var articeslSchema = new mongoose.Schema({
     author:String,
-    createTime:Date,
+    createTime:Object,
     title:String,
     content:String
 },{collection:'articles'});
@@ -15,9 +15,24 @@ function Article(article){
     this.content=article.content;
 }
 module.exports=Article;
+Article.get=function(conditions,callback){
+    articleModel.find(conditions, function (err, docs) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null,docs);
+    });
+};
 Article.prototype.save=function(callback){
     var date=new Date();
-
+    var time = {
+        date: date,
+        year : date.getFullYear(),
+        month : date.getFullYear() + "-" + (date.getMonth() + 1),
+        day : date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate(),
+        minute : date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " +
+        date.getHours() + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
+    }
     var newArticle=new articleModel({
         author:this.author,
         createTime:date,
