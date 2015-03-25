@@ -5,7 +5,6 @@ var Article=require('../module/article');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Article.get({},function(err,docs){
-        //docs.sort();//这里排序不会用
         if(err){
             return req.flash('error','查询失败');
         }

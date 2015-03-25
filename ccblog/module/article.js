@@ -16,7 +16,7 @@ function Article(article){
 }
 module.exports=Article;
 Article.get=function(conditions,callback){
-    articleModel.find(conditions, function (err, docs) {
+    articleModel.find(conditions,null,{sort:  {'_id' : -1 }}, function (err, docs) {
         if (err) {
             return callback(err);
         }
@@ -35,7 +35,7 @@ Article.prototype.save=function(callback){
     }
     var newArticle=new articleModel({
         author:this.author,
-        createTime:date,
+        createTime:time,
         title:this.title,
         content:this.content
     });

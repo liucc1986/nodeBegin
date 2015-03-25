@@ -10,7 +10,7 @@
             <% docs.forEach(function (doc, index) { %>
             <div class="blog-post">
                 <h2 class="blog-post-title"><%= doc.title %></h2>
-                <p class="blog-post-meta"><%= doc.createTime %> by <a href="#"><%= doc.author %></a></p>
+                <p class="blog-post-meta"><%= doc.createTime.minute %> by <a href="#"><%= doc.author %></a></p>
 
                 <p><%- doc.content %></p>
             </div><!-- /.blog-post -->
