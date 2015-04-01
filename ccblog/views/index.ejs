@@ -1,7 +1,7 @@
 <%- include ./include/header.ejs%>
 
     <div class="blog-header">
-        <h1 class="blog-title">刘cc的博客</h1>
+        <h1 class="blog-title"></h1>
         <p class="lead blog-description">专注js三十年不动摇</p>
     </div>
 
@@ -10,19 +10,46 @@
             <% docs.forEach(function (doc, index) { %>
             <div class="blog-post">
                 <h2 class="blog-post-title"><%= doc.title %></h2>
-                <p class="blog-post-meta"><%= doc.createTime.minute %> by <a href="#"><%= doc.author %></a></p>
+                <p class="blog-post-meta"><%= doc.createTime.minute %> by <a href="#"><%= doc.userId.username %></a></p>
 
                 <p><%- doc.content %></p>
             </div><!-- /.blog-post -->
             <% }) %>
 
 
-            <nav>
-                <ul class="pager">
-                    <li><a href="#">Previous</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
-            </nav>
+            <ul class="pagination">
+                <%
+                var num =0;
+                if(pageNum %5==0){
+                    num = pageNum/5 -1;
+                }else{
+                    num = Math.floor(pageNum/5);
+                }
+                var start = num *5+1;
+                var end = start + 4>totalPage?totalPage:start+4;
+                if(start >1){
+                %><li><a href="/article/list/<%=start -1%>/<%=pageSize%>">&laquo;</a></li><%
+                }
+                for(var i=start;i<=end;i++){
+                %>
+                    <%
+                     if(i==pageNum){
+                    %>
+                        <li class="active"><a href="/article/list/<%=i%>/<%=pageSize%>"><%=i%></a></li>
+                    <%
+                     }else{
+                     %>
+                        <li><a href="/article/list/<%=i%>/<%=pageSize%>"><%=i%></a></li>
+
+                    <%}%>
+
+                <%}%>
+                <% if(totalPage>end){
+                %>
+                    <li><a href="/article/list/<%=end +1%>/<%=pageSize%>">&raquo;</a></li>
+                <%}%>
+
+            </ul>
 
         </div><!-- /.blog-main -->
 
