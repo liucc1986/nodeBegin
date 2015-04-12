@@ -1,7 +1,7 @@
 
 body {
     padding-top:70px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Microsoft YaHei , "Times New Roman", Times, serif;
     color: #555;
 }
 
@@ -12,7 +12,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     margin-top: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Microsoft YaHei ", Helvetica, Arial, sans-serif;
     font-weight: normal;
     color: #333;
 }
@@ -77,17 +77,15 @@ h6, .h6 {
  */
 
 .blog-header {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 .blog-title {
-    margin-top: 30px;
-    margin-bottom: 0;
-    font-size: 60px;
+    margin-bottom: 10px;
+    font-size: 25px;
     font-weight: normal;
 }
 .blog-description {
-    font-size: 20px;
+    font-size: 18px;
     color: #999;
 }
 
@@ -97,7 +95,7 @@ h6, .h6 {
  */
 
 .blog-main {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
 }
 
@@ -140,10 +138,12 @@ h6, .h6 {
 }
 .blog-post-title {
     margin-bottom: 5px;
-    font-size: 40px;
+    font-size: 25px;
+    word-wrap: break-word;
 }
 .blog-post-meta {
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 14px;
     color: #999;
 }
 
@@ -161,4 +161,7 @@ h6, .h6 {
 }
 .blog-footer p:last-child {
     margin-bottom: 0;
+}
+.ds-powered-by{
+    display:none;
 }

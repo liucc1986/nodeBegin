@@ -14,6 +14,7 @@ var article=require('./routes/article')
 var forbidden=require('./middleWare/forbidden');
 var app = express();
 app.use(session({
+    cookie: { maxAge: 6000000 },
     secret:"hadha",
     resave:false,
     saveUninitialized:false,
@@ -48,6 +49,8 @@ app.use(function(req,res,next){
     res.locals.success = req.flash('success').toString() || "";
     res.locals.title = "";
     res.locals.user = req.session.user;
+    res.locals.keyword="";
+    res.locals.navActive="";
     next();
 });
 app.use('/', routes);

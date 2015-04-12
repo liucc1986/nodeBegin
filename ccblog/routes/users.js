@@ -9,13 +9,14 @@ router.get('/logout', function(req, res, next) {
     req.flash('success','成功退出');
     res.redirect('/');
 });
-router.get('/login', function(req, res, next) {
+router.get('/cclogin', function(req, res, next) {
     if(req.session.user){
       return  res.redirect('/');
     }
 
     res.render('login',{
-        title:"请登录"
+        title:"请登录",
+        navActive:"login"
     });
 });
 router.post('/login', function(req, res, next) {
